@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}Client{% endblock %}
+
+{% block content %}
+
+<a href="{{ url_for('client.create_client') }}">Add client</a>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Secret</th>
+            <th>Name</th>
+            <th>redirect uris</th>
+            <th>default redirect</th>
+            <th>scopes</th>
+            <th></th>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.client_id }}</td>
+                <td>{{ client.client_secret }}</td>
+                <td>{{ client.name }}</td>
+                <td>
+                    {% for uri in client.redirect_uris %}
+                        {{ uri }}<br />
+                    {% endfor %}
+                </td>
+                <td>{{ client.default_redirect_uri }}</td>
+                <td>
+                    {% for scope in client.default_scopes %}
+                        {{ scope }}<br />
+                    {% endfor %}
+                </td>
+                <td><a href="{{ url_for('client.update_client', client_id=client.client_id) }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

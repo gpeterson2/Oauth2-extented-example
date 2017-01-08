@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <form method="POST">
+        <input type="hidden" name="client_id" value="{{ client_id }}" />
+        <input type="hidden" name="client_secret" value="{{ client_secret }}" />
+
+        <label for="client_id">Client ID</label>
+        <input type="text" id="client_id" value="{{ client_id }}"
+            disabled="disabled" />
+
+        <label for="client_secret">Client Secret</label>
+        <input type="text" id="client_secret" value="{{ client_secret }}"
+            disabled="disabled" />
+
+        <label for="client_secret">Name</label>
+        <input type="text" id="name" name="name" />
+
+        <input type="submit" value="save" />
+    </form>
+{% endblock %}

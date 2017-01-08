@@ -1,0 +1,15 @@
+table, td, tr, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 5px;
+    padding: 7px;
+}
+
+form input, label {
+    margin: 5px;
+}
+
+form input[type="text"] {
+    display: block;
+    width: 30em;
+}

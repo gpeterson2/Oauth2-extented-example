@@ -1,0 +1,6 @@
+# Note these are set to what was used when originally testing, the versions
+# otherwise not relavent.
+Flask==0.12
+Flask-OAuthlib==0.9.3
+Flask-SQLAlchemy==2.1
+Werkzeug==0.11.15

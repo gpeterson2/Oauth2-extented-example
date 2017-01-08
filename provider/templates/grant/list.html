@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}Grant{% endblock %}
+
+{% block content %}
+
+    <p>
+        Grants should be deleted after use. So if you see many here past the
+        expiration date that means something might be wrong.
+    </p>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Client</th>
+            <th>User</th>
+            <th>code</th>
+            <th>redirect_uri</th>
+            <th>expires </th>
+            <th>scopes</th>
+        </thead>
+        <tbody>
+        {% for grant in grants %}
+            <tr>
+                <td>{{ grant.id }}</td>
+                <td>{{ grant.client.name }}</td>
+                <td>{{ grant.user.username }}</td>
+                <td>{{ grant.code }}</td>
+                <td>{{ grant.redirect_uri }}</td>
+                <td>
+                    {% for scope in grant.scopes %}
+                        {{ scope }}<br />
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

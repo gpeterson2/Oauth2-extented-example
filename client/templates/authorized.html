@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+
+    {% if error_reason %}
+        <h2>Access denied:</h2>
+
+        <p>reason: {{ error_reason }}</p>
+        <p>error: {{ error_description }}</p>
+    {% endif %}
+
+{% endblock %}

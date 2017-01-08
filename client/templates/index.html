@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div>
+        <a href="{{ url_for('login') }}">Login</a>
+        {% if session.access_token %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+    </div>
+
+    {% if username %}
+        <p>Logged in as "{{ username }}"</p>
+
+        {% if session.oauth_response %}
+            <label>Token info:</label>
+            <div>{{ session.oauth_response }}</div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

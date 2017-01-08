@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <form method="POST">
+        <input type="hidden" name="client_id" value="{{ client.client_id }}" />
+        <input type="hidden" name="client_secret" value="{{ client.client_secret }}" />
+
+        <label for="client_id">Client ID</label>
+        <input type="text" id="client_name" value="{{ client.client_id }}"
+            disabled="disabled" />
+
+        <label for="client_id">Client Secret</label>
+        <input type="text" id="client_secret" value="{{ client.client_secret }}"
+            disabled="disabled" />
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{ client.name }}" />
+
+        <label for="redirect_uris">Redirect Uris</label>
+        {% for uri in client.redirect_uris %}
+            <input type="text" name="redirect_uris" value="{{ uri }}" />
+        {% endfor %}
+        <input type="text" id="redirect_uris" name="redirect_uris" value="" />
+
+        <label for="scopes">Scopes</label>
+        {% for scope in client.default_scopes %}
+            <input type="text" name="scopes" value="{{ scope }}" />
+        {% endfor %}
+        <input type="text" id="scopes" name="scopes" value="" />
+
+        <input type="submit" value="update" />
+    </form>
+
+    <a href="{{ url_for('client.list_clients') }}">Done</a>
+{% endblock %}

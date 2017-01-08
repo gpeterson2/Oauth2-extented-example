@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}User{% endblock %}
+
+{% block content %}
+
+<a href="{{ url_for('user.create_user') }}">Add user</a>
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Username</th>
+            <th></th>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>
+                    <a href="{{ url_for('user.update_user', user_id=user.id) }}">Edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

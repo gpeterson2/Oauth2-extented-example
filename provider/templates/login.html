@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+    <p>Type a username, if it does not exist it will be created</p>
+
+    <form method="post" action="/">
+        <label for="username">
+        <input type="text" id="username" name="username">
+
+        <input type="submit">
+    </form>
+{% endblock %}

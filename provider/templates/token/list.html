@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block title %}Token{% endblock %}
+
+{% block content %}
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Client</th>
+            <th>User</th>
+            <th>type</th>
+            <th>access_token</th>
+            <th>refresh_token</th>
+            <th>scopes</th>
+        </thead>
+        <tbody>
+        {% for token in tokens %}
+            <tr>
+                <td>{{ token.id }}</td>
+                <td>{{ token.client.name }}</td>
+                <td>{{ token.user.username }}</td>
+                <td>{{ token.token_type }}</td>
+                <td>{{ token.access_token }}</td>
+                <td>{{ token.refresh_token }}</td>
+                <td>
+                    {% for scope in token.scopes %}
+                        {{ scope }}<br />
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
